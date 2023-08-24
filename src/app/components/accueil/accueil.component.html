@@ -1,0 +1,64 @@
+<main class="h-screen bg-dark-green flex flex-col items-center">
+    <app-header class="w-screen"></app-header>
+
+    <section class="ml-20 mt-10 flex flex-col w-7/12 text-black">
+        <p class="text-white text-2xl">Choisir un capteur :</p>
+        <!-- (change) fonctionne comme (click) mais pour une balise select -->
+        <select name="plante" class="rounded-lg bg-cool-green border-solid border-2 border-green-800 w-64 h-8"            
+            [(ngModel)]="selectedCapteur" (change)="onSelect(selectedCapteur)">  <!-- Pour utiliser ngModel importer FormsModule -->
+            <option value="" disabled selected hidden>Choisir un capteur</option> <!-- Ne marche pas ?! -->                           
+            <option *ngFor="let stats of mesPlantes.capteur" [ngValue]="stats">{{ stats.nom }}</option>
+        </select>
+    </section>
+
+    <section class="mt-10 w-6/12 flex flex-col" *ngIf="selectedCapteur">
+        <article>
+            <p class="text-white text-lg">Le {{ today| date:'dd/MM/yyyy à HH:mm:ss' }} </p>
+            <p class="text-white text-lg">votre {{ selectedCapteur.plante }} à un taux d'humidité de : {{ selectedCapteur.humidite }}%</p>
+            <!-- La Div ci-dessous utilise daisyUI pour faire un radial -->
+            <div class="radial-progress text-success mt-10 text-lg" [style.--value]="selectedCapteur.humidite"
+                style="--size:10rem; --thickness: 15px;">{{ selectedCapteur.humidite }}</div>
+            <p class="text-white text-lg flex flex-row items-end" *ngIf="selectedCapteur.humidite < selectedCapteur.alerte">
+                ARROSE MOI !!!!!!! <img src="assets/images/logoplanteRouge.png" alt="logoplanteRouge">
+            </p>
+            <p class="text-white text-lg flex flex-row items-end" *ngIf="selectedCapteur.humidite > selectedCapteur.alerte">
+                Je n'ai pas soif ! <img src="assets/images/logoplanteVerte.png" alt="logoplanteRouge">
+            </p>
+        </article>
+    </section>  
+    
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <article *ngFor="let stats of mesPlantes.capteur">
+    <p class="text-white text-lg" >Le {{ today| date:'dd/MM/yyyy HH:mm:ss' }} votre plante à un taux d'humidité de : {{ stats.humidite }}</p> 
+    
+     <div class="radial-progress text-success mt-10" [style.--value]="stats.humidite" style="--size:10rem; --thickness: 15px;">{{ stats.humidite }}</div>     
+      <p class="text-white text-lg" *ngIf="stats.humidite < 50">
+        ARROSE MOI !!!!!!!
+      </p>
+</article> -->
+
+
+<!-- <section class="ml-20 mt-10 flex flex-col w-7/12">         
+        <p *ngFor="let stats of mesPlantes.capteur" (click)="onSelect(stats)">{{ stats.nom }}</p>     
+    </section>     
+    <section class="mt-10 w-6/12 flex flex-col" *ngIf="selectedCapteur">
+        <p>coucou</p>
+        <p>{{ selectedCapteur.nom }}</p>
+    </section> -->
+
+
+<!-- <section class="h-1/2 w-screen flex flex-col items-center mt-6">
+        <canvas class="" id="linechart"></canvas>
+    </section> -->

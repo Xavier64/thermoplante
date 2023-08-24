@@ -1,0 +1,26 @@
+<main class="h-screen flex flex-col justify-around">
+    <section class="flex flex-col items-center space-y-20">
+        <span>
+            <h1 class="text-6xl text-white">Bien le bonjour camarade identifie toi donc pour accéder à ce site merveilleux</h1>
+        </span>
+        <span class="space-y-2">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmitForm()" class="space-y-4">
+                <div class="flex flex-col space-y-3">
+                    <label class="lobster text-3xl text-white" for="email">Email</label>
+                    <input class="text-xl h-10 rounded-sm" type="email" id="email" formControlName="email" name="email"/>
+                </div>
+                <div class="flex flex-col space-y-3">
+                    <label class="lobster text-3xl text-white" for="password">Mot de Passe</label>
+                    <input class="text-xl h-10 rounded-sm" type="password" id="password" formControlName="password" name="password"/>
+                </div>
+                <div class="flex flex-row justify-end">
+                    <button class="lobster bg-my-green rounded text-white h-10 w-24" type="submit" value="Login">Login</button>
+                </div>
+            </form>
+        </span>
+    </section>
+    <section class="flex flex-row items-end ml-8 ">
+        <img src="assets/images/bearn.svg" alt="bearn">
+        <h2 class="lobster text-4xl text-white">Made in Béarn</h2>
+    </section>
+</main>

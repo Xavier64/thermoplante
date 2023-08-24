@@ -1,0 +1,22 @@
+<main class="h-screen bg-dark-green flex flex-col items-center">
+    <app-header class="w-screen"></app-header>
+    <section class="mt-10 text-2xl">
+        <p class="text-white">Interface d'ajout de capteur</p>
+    </section>
+    <section class="flex flex-col text-2xl mt-14">
+        <form [formGroup]="formulaire" (ngSubmit)="onSubmit()" class="text-white flex flex-col gap-2">
+            <label for="nom">Nom de votre capteur</label>
+            <input type="text" formControlName="nom" class="h-10 w-96">
+            <label for="macAddress">Adresse Mac de votre capteur</label>
+            <input type="text" formControlName="macAddress" class="h-10">
+            <label for="plante">Nom de votre plante</label>
+            <input type="text" formControlName="plante" class="h-10">
+            <label for="alerte">Taux d'humidité minimum</label>
+            <input type="number" formControlName="alerte" class="h-10">
+            <div class="mt-10">
+                <button type="submit" class="bg-cool-blue rounded text-white text-lg h-10 w-24">Enregistrer</button>
+            </div>
+        </form>
+    </section>
+</main>
+

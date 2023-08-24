@@ -1,0 +1,23 @@
+<header class="bg-cool-green h-36 flex space-x-20 justify-around items-center">
+    <nav class="flex-row space-x-2">
+        <button class="bg-green-800 rounded text-white h-10 w-24" type="submit" (click)="logout()">Déconnexion</button>
+        <a routerLink="../accueil">
+            <button routerLinkActive="active" class="bg-cool-blue rounded text-white h-10 w-24">Accueil</button>
+        </a>
+        <a routerLink="../gestion">
+            <button routerLinkActive="active" class="bg-cool-blue rounded text-white h-10 w-24">Gestion</button>
+        </a>
+        <a routerLink="../historique">
+            <button routerLinkActive="active" class="bg-cool-blue rounded text-white h-10 w-24">Historique</button>
+        </a> 
+    </nav>
+    <div class="">
+        <h1 class="text-4xl xl:text-6xl text-gray-900">ThermoPlante</h1>
+        <h2 class="text-1xl ml-24 xl:text-2xl xl:ml-36 text-gray-900">Les plantes assoiffées c'est du passé !</h2>
+    </div>
+    <div class="">
+        <img src="assets/images/logoplante-bleue.svg" alt="">
+        
+    </div>
+
+</header>
